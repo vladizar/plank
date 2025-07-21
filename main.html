@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plank Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="settings">
+      <label for="prepTime">Vorbereitungszeit (Sek.):</label>
+      <input type="number" id="prepTime" value="3" min="0">
+      <label for="phaseDuration">Dauer pro Phase (Sek.):</label>
+      <input type="number" id="phaseDuration" value="30" min="5">
+    </div>
+
+    <div id="phase">Bereit?</div>
+    <div id="timer">--</div>
+    <button onclick="startWorkout()">Start</button>
+    <div style="margin-top: 1em;">
+        <label><input type="checkbox" id="sound_tickWork" checked> Jede-Sekunde-Ton</label><br>
+        <label><input type="checkbox" id="sound_tickPrep" checked> Countdown-Ton</label><br>
+        <label><input type="checkbox" id="sound_reminder" checked> Erinnerungston</label><br>
+        <label><input type="checkbox" id="sound_final" checked> Phasenwechsel-Ton</label>
+    </div>
+
+    <button onclick="pauseWorkout()" id="pauseButton" disabled>Pausieren</button>
+
+  </div>
+
+  <audio id="tickPrep">
+    <source src="./tickPrep.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="tickWork">
+    <source src="./tickWork.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="reminder">
+    <source src="reminder.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="final">
+    <source src="final.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
